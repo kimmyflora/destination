@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Friend's List</h1>
+
+{% for friend in friends %}
+<div class="card">
+  <a href="/friends/{{ friend.id }}">
+    <div class="card-content">
+      <span class="card-title">{{ friend.name }}</span>
+
+      <p>Description: {{ friend.description }}</p>
+      {% if friend.age > 0 %}
+      <p>Age: {{ friend.age }}</p>
+      {% else %}
+      <p>Age: Friend</p>
+      {% endif %}
+    </div>
+  </a>
+</div>
+{% endfor %}
+
+{% endblock %}

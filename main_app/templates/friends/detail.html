@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1> Details</h1>
+
+<div class="row">
+  <div class="col s6">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">{{ friend.name }}</span>
+        <p>Description: {{ friend.description|linebreaks }}</p>
+        {% if friend.age > 0 %}
+        <p>Age: {{ friend.age }}</p>
+        {% else %}
+        <p>Age: Friend</p>
+        {% endif %}
+      </div>
+      <div class="card-action">
+        <a href="{% url 'friends_update' friend.id %}">Edit</a>
+        <a href="{% url 'friends_delete' friend.id %}">Delete</a>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <div class="row">
+    <div class="col s6">
+      <h3>{{ finch.name }} Been To</h3>
+      {% if friend.restaurants.count %}
+      {% for restaurant in friend.restaurants.all %}
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">
+            <span> {{ restaurant.name }} {{ restaurant.address }} {{ restaurant.description }}
+          </span>
+        </div>
+      </div>
+      {% endfor %}
+      {% else %}
+      <h5>No Restaurants </h5>
+      {% endif %}
+    </div>
+    <div class="col s6">
+      <h3>Other Restaurants</h3>
+      {% if restaurants.count %}
+      {% for restaurant in restaurants.all %}
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">
+            {{ restaurant.name }} {{ restaurant.address }} {{ restaurant.description }}
+          </span>
+        </div>
+        <div class="card-action">
+          <form action="{% url 'assoc_restaurant' friend.id restaurant.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn">Add</button>
+          </form>
+        </div>
+      </div>
+      {% endfor %}
+      {% else %}
+      <h5>{{friend.name}} Already Has All Restaurants Available</h5>
+      {% endif %}
+    </div>
+
+
+
+
+    {% endblock %}
