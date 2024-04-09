@@ -31,7 +31,7 @@ def friends_index(request):
 class FriendCreate(CreateView):
   # tells us from which model
     model = Friend
-    fields = '__all__'\
+    fields = ['name', 'description', 'age']
   
 
 
