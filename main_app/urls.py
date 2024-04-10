@@ -17,17 +17,10 @@ urlpatterns = [
     path('restaurants/create/', views.RestaurantCreate.as_view(), name='restaurants_create'),
     path('restaurants/<int:pk>/update/', views.RestaurantUpdate.as_view(), name='restaurants_update'),
     path('restaurants/<int:pk>/delete/', views.RestaurantDelete.as_view(), name='restaurants_delete'),
-   
-    path('hotels/', views.HotelList.as_view(), name='hotels_index'),
+      path('hotels/', views.HotelList.as_view(), name='hotels_index'),
     path('hotels/<int:pk>/', views.HotelDetail.as_view(), name='hotels_detail'),
     path('hotels/create/', views.HotelCreate.as_view(), name='hotels_create'),
     path('hotels/<int:pk>/update/', views.HotelUpdate.as_view(), name='hotels_update'),
     path('hotels/<int:pk>/delete/', views.HotelDelete.as_view(), name='hotels_delete'),
-
-
-
-
-
-
-
+    path('accounts/signup/', views.signup, name='signup'),
 ]
