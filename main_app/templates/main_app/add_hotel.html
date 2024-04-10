@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block content %}
+<form action="{% url 'add_hotel' %}" method="post">
+  {% csrf_token %}
+  <label for="name">Name:</label><br />
+  <input type="text" id="name" name="name" /><br /><br />
+  <label for="address">Address:</label><br />
+  <input type="text" id="address" name="address" /><br /><br />
+  <label for="description">Description:</label><br />
+  <textarea id="description" name="description"></textarea><br /><br />
+  <button type="submit">Add Hotel</button>
+</form>
+
+{% endblock %}

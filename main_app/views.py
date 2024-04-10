@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
-from .models import Friend, Restaurant
+from .models import Friend, Restaurant, Hotel
 
 # Define the home view
 
@@ -91,3 +91,22 @@ class RestaurantUpdate(UpdateView):
 class RestaurantDelete(DeleteView):
     model = Restaurant
     success_url = '/restaurants/'
+
+
+class HotelList(ListView):
+    model = Hotel
+    
+    
+class HotelDetail(DetailView):
+    model = Hotel
+    
+    
+class HotelCreate(CreateView):
+    model = Hotel
+
+def add_hotel(request, hotel_id):
+    hotel = Hotel.object.get(id=hotel_id)
+    hotel.add(hotel_id)
+    print(hotel_id)
+   
+    return redirect("detail", hotel_id=hotel_id)

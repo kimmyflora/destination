@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.urls import reverse
 
 # Create your models here.
 
@@ -28,3 +29,15 @@ class Friend(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'friend_id': self.id})
+
+
+class Hotel(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.CharField(max_length=250)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('hotel_detail', kwargs={'pk': self.pk})
