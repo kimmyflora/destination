@@ -26,6 +26,8 @@
           <li><a href="{% url 'friends_create' %}">Add a Friend</a></li>
           <li><a href="{% url 'restaurants_index' %}">View All Restaurants</a></li>
           <li><a href="{% url 'restaurants_create' %}">Add a Restaurant</a></li>
+          <li><a href="{% url 'hotels_index' %}">View All Hotels</a></li>
+          <li><a href="{% url 'hotels_create' %}">Add A Hotel</a></li>
           <li>
             <form method="post" action="{% url 'logout' %}">
               {% csrf_token %}

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
+<<<<<<< HEAD
 from .models import Friend, Restaurant
 # this is for login stuff
 from django.contrib.auth import login
@@ -9,6 +10,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin  # CBV
 
+=======
+from .models import Friend, Restaurant, Hotel
+>>>>>>> main
 
 # Define the home view
 def signup(request):
@@ -58,6 +62,7 @@ def friends_index(request):
 class FriendCreate(LoginRequiredMixin, CreateView):
   # tells us from which model
     model = Friend
+<<<<<<< HEAD
     fields = ['name', 'description', 'age']
 
 
@@ -65,6 +70,14 @@ class FriendCreate(LoginRequiredMixin, CreateView):
 
 
 class FriendUpdate(LoginRequiredMixin, UpdateView):
+=======
+    fields = '__all__'\
+
+
+
+# need to write a class for updating and deleting
+class FriendUpdate(UpdateView):
+>>>>>>> main
     model = Friend
     # only add in the array what is allowed to be update
     fields = ['name', 'description', 'age']
@@ -78,8 +91,12 @@ class FriendUpdate(LoginRequiredMixin, UpdateView):
 
 
 # need to write a class for deleting friend input
+<<<<<<< HEAD
 
 class FriendDelete(LoginRequiredMixin, DeleteView):
+=======
+class FriendDelete(DeleteView):
+>>>>>>> main
     model = Friend
     success_url = '/friends'
 
@@ -124,3 +141,33 @@ class RestaurantUpdate(UpdateView):
 class RestaurantDelete(DeleteView):
     model = Restaurant
     success_url = '/restaurants/'
+
+
+class HotelList(ListView):
+    model = Hotel
+
+
+class HotelDetail(DetailView):
+    model = Hotel
+
+
+class HotelUpdate(UpdateView):
+    model = Hotel
+    fields = ['name', 'address', 'description']
+
+
+class HotelCreate(CreateView):
+    model = Hotel
+    fields = '__all__'
+
+
+class HotelDelete(DeleteView):
+    model = Hotel
+    success_url = '/hotels/'
+
+
+def assoc_hotel(request, hotel_id):
+    hotel = Hotel.object.get(id=hotel_id)
+    hotel.save()
+    print(hotel_id)
+    return redirect('detail', hotel_id=hotel_id)

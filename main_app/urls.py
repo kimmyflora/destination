@@ -11,11 +11,10 @@ urlpatterns = [
     # which is another for id
     path('friends/<int:pk>/update/', views.FriendUpdate.as_view(), name='friends_update'),
     path('friends/<int:pk>/delete/', views.FriendDelete.as_view(), name='friends_delete'),
-    path('friends/<int:friend_id>/assoc_restaurant/<int:restaurant_id>/', views.assoc_restaurant, name='assoc_restaurant'),
+    path('friends/<int:friend_id>/assoc_restaurant/<int:restaurant_id>/',views.assoc_restaurant, name='assoc_restaurant'),
     path('restaurants/', views.RestaurantList.as_view(), name='restaurants_index'),
     path('restaurants/<int:pk>/', views.RestaurantDetail.as_view(), name='restaurants_detail'),
     path('restaurants/create/', views.RestaurantCreate.as_view(), name='restaurants_create'),
     path('restaurants/<int:pk>/update/', views.RestaurantUpdate.as_view(), name='restaurants_update'),
     path('restaurants/<int:pk>/delete/', views.RestaurantDelete.as_view(), name='restaurants_delete'),
-    path('accounts/signup/', views.signup, name='signup'),
 ]

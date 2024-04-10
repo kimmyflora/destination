@@ -3,8 +3,6 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 
 # Create your models here.
-
-
 class Restaurant(models.Model):
     name = models.CharField(max_length=50)
     address = models.CharField(max_length=50)
@@ -31,3 +29,16 @@ class Friend(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'friend_id': self.id})
+
+
+class Hotel(models.Model):
+    name = models.CharField(max_length=50)
+    address = models.CharField(max_length=50)
+    description = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('hotels_detail', kwargs={'pk': self.pk})
+
