@@ -32,13 +32,10 @@ class FriendCreate(CreateView):
   # tells us from which model
     model = Friend
     fields = '__all__'\
-  
 
 
-    
+
 # need to write a class for updating and deleting
-
-
 class FriendUpdate(UpdateView):
     model = Friend
     # only add in the array what is allowed to be update
@@ -46,7 +43,6 @@ class FriendUpdate(UpdateView):
 
 
 # need to write a class for deleting friend input
-
 class FriendDelete(DeleteView):
     model = Friend
     success_url = '/friends'
@@ -62,6 +58,7 @@ def friends_detail(request, friend_id):
         'restaurants': restaurants_friend_doesnt_have
     })
 
+
 def assoc_restaurant(request, friend_id, restaurant_id):
     print(friend_id, restaurant_id)
     friend = Friend.objects.get(id=friend_id)
@@ -69,7 +66,7 @@ def assoc_restaurant(request, friend_id, restaurant_id):
     return redirect('detail', friend_id=friend_id)
 
 
-# Restaurant 
+# Restaurant
 class RestaurantList(ListView):
     model = Restaurant
 
@@ -95,18 +92,29 @@ class RestaurantDelete(DeleteView):
 
 class HotelList(ListView):
     model = Hotel
-    
-    
+
+
 class HotelDetail(DetailView):
     model = Hotel
-    
-    
+
+
+class HotelUpdate(UpdateView):
+    model = Hotel
+    fields = ['name', 'address', 'description']
+
+
 class HotelCreate(CreateView):
     model = Hotel
+    fields = '__all__'
 
-def add_hotel(request, hotel_id):
+
+class HotelDelete(DeleteView):
+    model = Hotel
+    success_url = '/hotels/'
+
+
+def assoc_hotel(request, hotel_id):
     hotel = Hotel.object.get(id=hotel_id)
-    hotel.add(hotel_id)
+    hotel.save()
     print(hotel_id)
-   
-    return redirect("detail", hotel_id=hotel_id)
+    return redirect('detail', hotel_id=hotel_id)

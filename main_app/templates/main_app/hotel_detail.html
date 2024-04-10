@@ -12,8 +12,8 @@
         <p>Description: {{ hotel.description }}</p>
       </div>
       <div class="card-action">
-        <a href="{% url 'hotel_update' restaurant.id %}">Edit</a>
-        <a href="{% url 'hotel_delete' restaurant.id %}">Delete</a>
+        <a href="{% url 'hotels_update' hotel.id %}">Edit</a>
+        <a href="{% url 'hotels_delete' hotel.id %}">Delete</a>
       </div>
     </div>
   </div>

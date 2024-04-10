@@ -1,10 +1,7 @@
 from django.db import models
 from django.urls import reverse
-from django.urls import reverse
 
 # Create your models here.
-
-
 class Restaurant(models.Model):
     name = models.CharField(max_length=50)
     address = models.CharField(max_length=50)
@@ -32,12 +29,13 @@ class Friend(models.Model):
 
 
 class Hotel(models.Model):
-    name = models.CharField(max_length=100)
-    address = models.CharField(max_length=250)
-    description = models.TextField()
+    name = models.CharField(max_length=50)
+    address = models.CharField(max_length=50)
+    description = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('hotel_detail', kwargs={'pk': self.pk})
+        return reverse('hotels_detail', kwargs={'pk': self.pk})
+
