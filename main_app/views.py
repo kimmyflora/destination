@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
-from .models import Friend, Restaurant
+from .models import Friend, Restaurant, Hotel
 # this is for login stuff
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -9,7 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin  # CBV
 
-from .models import Friend, Restaurant, Hotel
+
 
 # Define the home view
 def signup(request):
@@ -87,7 +87,6 @@ class FriendUpdate(UpdateView):
 # need to write a class for deleting friend input
 
 class FriendDelete(LoginRequiredMixin, DeleteView):
-class FriendDelete(DeleteView):
     model = Friend
     success_url = '/friends'
 
