@@ -60,6 +60,12 @@ class FriendCreate(LoginRequiredMixin, CreateView):
   # tells us from which model
     model = Friend
     fields = ['name', 'description', 'age']
+    def form_valid(self, form):
+		# assign the logged in user self.request.user
+      form.instance.user = self.request.user
+      # Let the create view finish adding the row 
+      # to psql
+      return super().form_valid(form)
 
 
 # need to write a class for updating and deleting
