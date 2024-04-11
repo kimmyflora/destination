@@ -17,6 +17,7 @@ import uuid # for random numbers (used in generating photo name)
 import boto3 # aws sdk that lets us talk to our s3 bucket
 import os # this lets us talk to the .env
 
+
 # Define the home view
 def signup(request):
     error_message = ''
@@ -66,6 +67,12 @@ class FriendCreate(LoginRequiredMixin, CreateView):
   # tells us from which model
     model = Friend
     fields = ['name', 'description', 'age']
+    def form_valid(self, form):
+		# assign the logged in user self.request.user
+      form.instance.user = self.request.user
+      # Let the create view finish adding the row 
+      # to psql
+      return super().form_valid(form)
 
 
 # need to write a class for updating and deleting
