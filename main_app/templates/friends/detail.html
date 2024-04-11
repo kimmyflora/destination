@@ -21,11 +21,40 @@
       </div>
     </div>
   </div>
+  <div class="col s6">
+    <!-- if the action is left blank its submits to the same
+    place used to get the form, which is in this case 
+    /cats/4, /cats/someid -->
+    <form action="{% url 'add_activity' friend.id %}" method="POST">
+      {% csrf_token %}
+
+      {{ activity_form.as_p }}
+      <input type="submit" class="btn green darken-2" value="Add Activity">
+    </form>
+
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for activity in friend.activity_set.all %}
+        <tr>
+          <td>{{activity.get_name_display}}</td>
+          <td>{{activity.get_city_display}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
 
   <hr>
   <div class="row">
     <div class="col s6">
-      <h3>{{ finch.name }} Been To</h3>
+      <h3>{{ friend.name }} Been To</h3>
       {% if friend.restaurants.count %}
       {% for restaurant in friend.restaurants.all %}
       <div class="card">

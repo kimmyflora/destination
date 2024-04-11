@@ -28,3 +28,13 @@ class Friend(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'friend_id': self.id})
+
+
+class Activity(models.Model):
+    name = models.CharField('activity name')
+    city = models.CharField('activity location(city)')
+
+
+    friend = models.ForeignKey(Friend, )
+    def __str__(self):
+      return f"{self.name} in {self.city}"

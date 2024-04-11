@@ -11,6 +11,7 @@ urlpatterns = [
     # which is another for id
     path('friends/<int:pk>/update/', views.FriendUpdate.as_view(), name='friends_update'),
     path('friends/<int:pk>/delete/', views.FriendDelete.as_view(), name='friends_delete'),
+    path('friends/<int:friend_id>/add_activity/', views.add_activity, name='add_activity'),
     path('friends/<int:friend_id>/assoc_restaurant/<int:restaurant_id>/', views.assoc_restaurant, name='assoc_restaurant'),
     path('restaurants/', views.RestaurantList.as_view(), name='restaurants_index'),
     path('restaurants/<int:pk>/', views.RestaurantDetail.as_view(), name='restaurants_detail'),
