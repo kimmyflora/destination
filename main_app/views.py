@@ -1,15 +1,13 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
-from .models import Friend, Restaurant, Hotel, Activity
+from .models import Friend, Restaurant, Hotel
 # this is for login stuff
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 # FOr Authorization
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin  # CBV
-
-
 from .forms import ActivityForm
 
 
@@ -107,7 +105,6 @@ def friends_detail(request, friend_id):
     })
 
 def add_activity(request, friend_id):
-    friend = Friend.objects.get(id = friend_id)
     form = ActivityForm(request.POST)
     if form.is_valid() :
         new_activity = form.save(commit=False)

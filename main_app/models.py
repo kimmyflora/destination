@@ -32,12 +32,11 @@ class Friend(models.Model):
 
 
 class Activity(models.Model):
-    name = models.CharField('activity name')
-    city = models.CharField('activity location(city)')
-
-
+    name = models.CharField(max_length = 100)
+    city = models.CharField(max_length = 200)
+    friend = models.ForeignKey(Friend, on_delete=models.CASCADE)
     def __str__(self):
-      return f"{self.name} in {self.city}"
+      return f"{self.get_name_display()} in {self.get_city_display()}"
 
 
 class Hotel(models.Model):
