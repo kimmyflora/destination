@@ -1,9 +1,8 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 # Create your models here.
-
-
 class Restaurant(models.Model):
     name = models.CharField(max_length=50)
     address = models.CharField(max_length=50)
@@ -22,6 +21,8 @@ class Friend(models.Model):
     age = models.IntegerField()
 
     restaurants = models.ManyToManyField(Restaurant)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
 
     def __str__(self):
         return self.name
@@ -35,6 +36,18 @@ class Activity(models.Model):
     city = models.CharField('activity location(city)')
 
 
-    friend = models.ForeignKey(Friend, )
     def __str__(self):
       return f"{self.name} in {self.city}"
+
+
+class Hotel(models.Model):
+    name = models.CharField(max_length=50)
+    address = models.CharField(max_length=50)
+    description = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('hotels_detail', kwargs={'pk': self.pk})
+
