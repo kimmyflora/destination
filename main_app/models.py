@@ -31,6 +31,14 @@ class Friend(models.Model):
         return reverse('detail', kwargs={'friend_id': self.id})
 
 
+class Activity(models.Model):
+    name = models.CharField(max_length = 100)
+    city = models.CharField(max_length = 200)
+    friend = models.ForeignKey(Friend, on_delete=models.CASCADE)
+    def __str__(self):
+      return f"{self.get_name_display()} in {self.get_city_display()}"
+
+
 class Hotel(models.Model):
     name = models.CharField(max_length=50)
     address = models.CharField(max_length=50)

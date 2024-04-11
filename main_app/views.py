@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 # FOr Authorization
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin  # CBV
-
+from .forms import ActivityForm
 
 
 # Define the home view
@@ -96,11 +96,21 @@ def friends_detail(request, friend_id):
     friend = Friend.objects.get(id=friend_id)
     id_list = friend.restaurants.all().values_list('id')
     restaurants_friend_doesnt_have = Restaurant.objects.exclude(id__in=id_list)
+    activity_form = ActivityForm()
+    print(friend.__dict__)
     return render(request, 'friends/detail.html', {
-        'friend': friend,
-        'restaurants': restaurants_friend_doesnt_have
+      'friend': friend,
+      'activity_form': activity_form,
+      'restaurants': restaurants_friend_doesnt_have
     })
 
+def add_activity(request, friend_id):
+    form = ActivityForm(request.POST)
+    if form.is_valid() :
+        new_activity = form.save(commit=False)
+        new_activity.friend_id = friend_id
+        new_activity.save()
+    return redirect('detail', friend_id=friend_id)    
 
 def assoc_restaurant(request, friend_id, restaurant_id):
     print(friend_id, restaurant_id)
