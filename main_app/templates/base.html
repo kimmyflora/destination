@@ -13,14 +13,14 @@
 </head>
 
 <body>
-  <header class="navbar-fixed">
-    <nav>
-      <div class="#f8bbd0 pink lighten-4">
-        <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Friends</a></li>
-        </ul>
-        <ul class="right">
-          
+  <header>
+    <nav class="indigo darken-3">
+      <div class="logo">
+        <a href="/" class="brand-logo left">&nbsp;&nbsp;Friends</a>
+      </div>
+      <div class="nav-wrapper container">
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
           {% if user.is_authenticated %}
           <li><a href="/about">About</a></li>
           <li><a href="/friends">View All Travlers</a></li>
@@ -39,17 +39,43 @@
           <li><a href="{% url 'login' %}">login</a></li>
           <li><a href="{% url 'signup' %}">signup</a></li>
           {% endif %}
-
         </ul>
       </div>
     </nav>
   </header>
+
+  <ul class="sidenav" id="mobile-demo">
+    {% if user.is_authenticated %}
+    <li><a href="/about">About</a></li>
+    <li><a href="/friends">View All My Friends</a></li>
+    <li><a href="{% url 'friends_create' %}">Add a Friend</a></li>
+    <li><a href="{% url 'restaurants_index' %}">View All Restaurants</a></li>
+    <li><a href="{% url 'restaurants_create' %}">Add a Restaurant</a></li>
+    <li><a href="{% url 'hotels_index' %}">View All Hotels</a></li>
+    <li><a href="{% url 'hotels_create' %}">Add A Hotel</a></li>
+    <li>
+      <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn">logout</button>
+      </form>
+    </li>
+    {% else %}
+    <li><a href="{% url 'login' %}">login</a></li>
+    <li><a href="{% url 'signup' %}">signup</a></li>
+    {% endif %}
+  </ul>
+
   <main class="container">
-
-
     {% block content %}
     {% endblock %}
+  </main>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems);
+    });
+  </script>
 </body>
 
 </html>
