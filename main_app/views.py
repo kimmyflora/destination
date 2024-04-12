@@ -155,6 +155,7 @@ class RestaurantDelete(DeleteView):
     model = Restaurant
     success_url = '/restaurants/'
 
+
 def add_photo(request, restaurant_id):
 	# photo-file will be the "name" attribute on the <input type="file">
     photo_file = request.FILES.get('photo-file', None)
@@ -173,7 +174,7 @@ def add_photo(request, restaurant_id):
         except Exception as e:
             print('An error occurred uploading file to S3')
             print(e)
-    return redirect('detail', restaurant_id=restaurant_id)
+    return redirect('restaurants_detail', pk=restaurant_id)
 
 
 class HotelList(ListView):
