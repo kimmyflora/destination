@@ -26,6 +26,8 @@ urlpatterns = [
     path('hotels/create/', views.HotelCreate.as_view(), name='hotels_create'),
     path('hotels/<int:pk>/update/', views.HotelUpdate.as_view(), name='hotels_update'),
     path('hotels/<int:pk>/delete/', views.HotelDelete.as_view(), name='hotels_delete'),
+    path('hotels/<int:hotel_id>/add_hotel_photo/', views.add_hotel_photo, name='add_hotel_photo'),
+
     path('accounts/signup/', views.signup, name='signup'),
     path('login/', views.login, {'next_page': 'home'}, name='login'),
     path('accounts/profile/', views.profile_view, name='profile'),
