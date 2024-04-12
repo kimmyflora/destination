@@ -1,14 +1,21 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
-from .models import Friend, Restaurant, Hotel
+from .models import Friend, Restaurant, Hotel, Photo
+
 # this is for login stuff
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+
 # FOr Authorization
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin  # CBV
 from .forms import ActivityForm
+
+# stuff for photo upload for aws
+import uuid # for random numbers (used in generating photo name)
+import boto3 # aws sdk that lets us talk to our s3 bucket
+import os # this lets us talk to the .env
 
 
 # Define the home view
@@ -147,6 +154,27 @@ class RestaurantUpdate(UpdateView):
 class RestaurantDelete(DeleteView):
     model = Restaurant
     success_url = '/restaurants/'
+
+
+def add_photo(request, restaurant_id):
+	# photo-file will be the "name" attribute on the <input type="file">
+    photo_file = request.FILES.get('photo-file', None)
+    if photo_file:
+        s3 = boto3.client('s3')
+        # need a unique "key" for S3 / needs image file extension too
+        key = 'friends/' + uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+        # just in case something goes wrong
+        try:
+            bucket = os.environ['S3_BUCKET']
+            s3.upload_fileobj(photo_file, bucket, key)
+            # build the full url string
+            url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
+            
+            Photo.objects.create(url=url, restaurant_id=restaurant_id)
+        except Exception as e:
+            print('An error occurred uploading file to S3')
+            print(e)
+    return redirect('restaurants_detail', pk=restaurant_id)
 
 
 class HotelList(ListView):
