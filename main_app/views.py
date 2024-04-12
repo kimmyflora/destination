@@ -39,6 +39,10 @@ def signup(request):
         'form': form
     })
 
+def profile_view(request):
+    # Logic for rendering the profile page
+    return render(request, 'home.html')
+
 
 def home(request):
     friends = Friend.objects.all()
