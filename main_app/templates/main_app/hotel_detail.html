@@ -20,7 +20,9 @@
 </div>
 
 {% for photo in hotel.photo_set.all %}
-<img class="responsive-img card-panel" src="{{photo.url}}">
+<div class="row justify-content-center"> <!-- Added a row to center the image horizontally -->
+  <img class="responsive-img card-panel" src="{{photo.url}}" style="display: block; margin: 0 auto;"> <!-- Center the image horizontally -->
+</div>
 {% empty %}
 <div class="card-panel teal-text center-align">No Photos Uploaded</div>
 {% endfor %}
