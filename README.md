@@ -8,14 +8,15 @@ Whether you're a seasoned globetrotter or an aspiring adventurer, our platform p
 
 Features:
 Restaurant Listings: Browse a comprehensive list of restaurants, including their names, addresses, and descriptions.
-Photo Gallery: View photos associated with each restaurant to get a visual sense of the ambiance and cuisine.
+Photo Gallery: View photos associated with each restaurant and hotel to get a visual sense of the ambiance and cuisine.
 User Profiles: Create a personalized profile, add travellers, and share favorite restaurants and activities.
 Activity Listings: Discover various activities available in different cities, along with their descriptions.
 Hotel Listings: Explore a curated selection of hotels, including their names, addresses, and descriptions.
+
 Models:
 Restaurant: Represents a restaurant entity with attributes such as name, address, and description.
-Photo: Stores URLs of photos associated with restaurants.
-Traveller: Represents a user's traveller with attributes like name, description, and age. Travellers can be associated with multiple restaurants.
+Photo: Stores URLs of photos associated with restaurants/hotels.
+Traveller: Represents a user's traveller with attributes like name, description, and age. 
 Activity: Represents an activity in a city, linked to a specific traveller.
 Hotel: Represents a hotel entity with attributes like name, address, and description.
 
