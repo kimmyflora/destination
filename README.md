@@ -6,7 +6,7 @@ Create your profile and showcase the activities you've enjoyed in cities you've 
 
 Whether you're a seasoned traveler or an aspiring adventurer, our platform puts the power of exploration at your fingertips. Unlock a world of gastronomic adventures, uncover hidden hospitality gems, and connect with like-minded travelers who share your zest for discovery. Experience the joy of travel like never before, with our intuitive and feature-rich web application.
 
-# Features
+## Features
 
 1. **Restaurant Listings:** Browse a comprehensive list of restaurants, including their names, addresses, and descriptions.
 2. **Photo Gallery:** View photos associated with each restaurant and hotel to get a visual sense of the ambiance and cuisine.
@@ -14,7 +14,7 @@ Whether you're a seasoned traveler or an aspiring adventurer, our platform puts 
 4. **Activity Listings:** Discover various activities available in different cities, along with their descriptions.
 5. **Hotel Listings:** Explore a curated selection of hotels, including their names, addresses, and descriptions.
 
-# Models
+## Models
 
 - **Restaurant:** Represents a restaurant entity with attributes such as name, address, and description.
 - **Photo:** Stores URLs of photos associated with restaurants/hotels.
@@ -22,7 +22,7 @@ Whether you're a seasoned traveler or an aspiring adventurer, our platform puts 
 - **Activity:** Represents an activity in a city, linked to a specific traveler.
 - **Hotel:** Represents a hotel entity with attributes like name, address, and description.
 
-# Technologies Used
+## Technologies Used
 
 - **Django:** A high-level Python web framework used for rapid development and clean, pragmatic design.
 - **HTML/CSS:** Standard technologies for structuring and styling web pages.
@@ -32,7 +32,7 @@ Whether you're a seasoned traveler or an aspiring adventurer, our platform puts 
 - **Python:** The primary programming language used for backend development and business logic.
 - **Git:** Version control system for tracking changes in codebase and collaboration among developers.
 
-# Screenshots
+## Screenshots
 
 1. ![Screenshot 1](<Screenshot 2024-04-15 at 2.55.45 PM.png>)
 2. ![Screenshot 2](<Screenshot 2024-04-15 at 2.56.06 PM.png>)
@@ -40,4 +40,5 @@ Whether you're a seasoned traveler or an aspiring adventurer, our platform puts 
 4. ![Screenshot 4](<Screenshot 2024-04-15 at 2.56.24 PM.png>)
 5. ![Screenshot 5](<Screenshot 2024-04-15 at 2.57.30 PM.png>)
 6. ![Screenshot 6](<Screenshot 2024-04-15 at 2.59.19 PM.png>)
+
    Link -->>
