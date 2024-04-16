@@ -21,13 +21,23 @@
 
 {% if hotel.photo_set.count > 0 %}
 <div class="row">
-  {% for photo in hotel.photo_set.all %}
-  <div class="col s12 m6 l4">
-    <div class="center-align">
-      <img class="responsive-img" src="{{photo.url}}" style="max-width: 100%; height: auto;">
+  {% if hotel.photo_set.count > 1 %}
+    {% for photo in hotel.photo_set.all %}
+      <div class="col s12 m6 l4">
+        <div class="center-align">
+          <img class="responsive-img" src="{{photo.url}}" style="max-width: 100%; height: auto;">
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <div class="col s12">
+      <div class="center-align">
+        {% for photo in hotel.photo_set.all %}
+          <img class="responsive-img" src="{{photo.url}}" style="max-width: 100%; height: auto;">
+        {% endfor %}
+      </div>
     </div>
-  </div>
-  {% endfor %}
+  {% endif %}
 </div>
 {% else %}
 <div class="row">
@@ -37,7 +47,7 @@
 </div>
 {% endif %}
 
-<form action="{% url 'add_hotel_photo' hotel.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+<form action="{% url 'add_hotel_photo' hotel.id %}" enctype="multipart/form-data" method="POST" class="card-panel" style="text-align: center;">
   {% csrf_token %}
   <div class="file-field input-field">
     <div class="btn">

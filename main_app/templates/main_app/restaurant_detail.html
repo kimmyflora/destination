@@ -43,7 +43,7 @@
 </div>
 {% endif %}
 
-<form action="{% url 'add_photo' restaurant.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+<form action="{% url 'add_photo' restaurant.id %}" enctype="multipart/form-data" method="POST" class="card-panel" style="text-align: center;">
   {% csrf_token %}
   <input type="file" name="photo-file">
   <br/>
