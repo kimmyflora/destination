@@ -32,6 +32,7 @@ Whether you're a seasoned traveler or an aspiring adventurer, our platform puts 
 - **Python:** The primary programming language used for backend development and business logic.
 - **Git:** Version control system for tracking changes in codebase and collaboration among developers.
 
+ Link -->>https://destination-htb7.onrender.com/friends/create/
 ## Screenshots
 
 1. ![Screenshot 1](<Screenshot 2024-04-15 at 2.55.45 PM.png>)
@@ -41,4 +42,4 @@ Whether you're a seasoned traveler or an aspiring adventurer, our platform puts 
 5. ![Screenshot 5](<Screenshot 2024-04-15 at 2.57.30 PM.png>)
 6. ![Screenshot 6](<Screenshot 2024-04-15 at 2.59.19 PM.png>)
 
-   Link -->>
+  
