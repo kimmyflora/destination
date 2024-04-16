@@ -19,13 +19,29 @@
   </div>
 </div>
 
-{% for photo in restaurant.photo_set.all %}
-<div class="row justify-content-center"> <!-- Added a row to center the image horizontally -->
-    <img class="responsive-img card-panel" src="{{photo.url}}" style="display: block; margin: 0 auto;"> <!-- Center the image horizontally -->
+{% if restaurant.photo_set.count > 1 %}
+<div class="row">
+  {% for photo in restaurant.photo_set.all %}
+  <div class="col s12 m6 l4">
+    <div class="center-align"> <!-- Center the image horizontally -->
+      <img class="responsive-img card-panel" src="{{photo.url}}" style="max-width: 100%; height: auto;"> <!-- Set max-width to ensure images resize nicely -->
+    </div>
+  </div>
+  {% empty %}
+  <div class="col s12">
+    <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+  </div>
+  {% endfor %}
 </div>
-{% empty %}
-<div class="card-panel teal-text center-align">No Photos Uploaded</div>
-{% endfor %}
+{% else %}
+<div class="row">
+  <div class="col s12">
+    <div class="center-align">
+      <img class="responsive-img card-panel" src="{{ restaurant.photo_set.first.url }}" style="max-width: 100%; height: auto;"> <!-- Center the image horizontally -->
+    </div>
+  </div>
+</div>
+{% endif %}
 
 <form action="{% url 'add_photo' restaurant.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
   {% csrf_token %}
