@@ -34,10 +34,10 @@ Whether you're a seasoned traveler or an aspiring adventurer, our platform puts 
 
 # Screenshots
 
-1. ![Screenshot 1](Screenshot 2024-04-15 at 2.55.45 PM.png)
-2. ![Screenshot 2](Screenshot 2024-04-15 at 2.56.06 PM.png)
-3. ![Screenshot 3](Screenshot 2024-04-15 at 2.56.06 PM.png)
-4. ![Screenshot 4](Screenshot 2024-04-15 at 2.56.24 PM.png)
-5. ![Screenshot 5](Screenshot 2024-04-15 at 2.57.30 PM.png)
-6. ![Screenshot 6](Screenshot 2024-04-15 at 2.59.19 PM.png)
+1. ![Screenshot 1](<Screenshot 2024-04-15 at 2.55.45 PM.png>)
+2. ![Screenshot 2](<Screenshot 2024-04-15 at 2.56.06 PM.png>)
+3. ![Screenshot 3](<Screenshot 2024-04-15 at 2.56.06 PM.png>)
+4. ![Screenshot 4](<Screenshot 2024-04-15 at 2.56.24 PM.png>)
+5. ![Screenshot 5](<Screenshot 2024-04-15 at 2.57.30 PM.png>)
+6. ![Screenshot 6](<Screenshot 2024-04-15 at 2.59.19 PM.png>)
    Link -->>
