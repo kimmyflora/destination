@@ -4,9 +4,9 @@
 <h1>Restaurant Details</h1>
 
 <div class="row">
-  <div style="text-align: center;">
-    <div class="card" style="text-align: center;">
-      <div class="card-content">
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content" style="text-align: center;">
         <span class="card-title">{{ restaurant.name }}</span>
         <p>Address: {{ restaurant.address }}</p>
         <p>Description: {{ restaurant.description }}</p>
@@ -19,34 +19,45 @@
   </div>
 </div>
 
-{% if restaurant.photo_set.count > 1 %}
+{% if restaurant.photo_set.count > 0 %}
 <div class="row">
-  {% for photo in restaurant.photo_set.all %}
-  <div class="col s12 m6 l4">
-    <div class="center-align"> <!-- Center the image horizontally -->
-      <img class="responsive-img card-panel" src="{{photo.url}}" style="max-width: 100%; height: auto;"> <!-- Set max-width to ensure images resize nicely -->
+  {% if restaurant.photo_set.count > 1 %}
+    {% for photo in restaurant.photo_set.all %}
+      <div class="col s12 m6 l4">
+        <div class="center-align">
+          <img class="responsive-img" src="{{photo.url}}" style="max-width: 100%; height: auto;">
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <div class="col s12">
+      <div class="center-align">
+        {% for photo in restaurant.photo_set.all %}
+          <img class="responsive-img" src="{{photo.url}}" style="max-width: 100%; height: auto;">
+        {% endfor %}
+      </div>
     </div>
-  </div>
-  {% empty %}
-  <div class="col s12">
-    <div class="card-panel teal-text center-align">No Photos Uploaded</div>
-  </div>
-  {% endfor %}
+  {% endif %}
 </div>
 {% else %}
 <div class="row">
   <div class="col s12">
-    <div class="center-align">
-      <img class="responsive-img card-panel" src="{{ restaurant.photo_set.first.url }}" style="max-width: 100%; height: auto;"> <!-- Center the image horizontally -->
-    </div>
+    <div class="card-panel teal-text center-align">No Photos Uploaded</div>
   </div>
 </div>
 {% endif %}
 
 <form action="{% url 'add_photo' restaurant.id %}" enctype="multipart/form-data" method="POST" class="card-panel" style="text-align: center;">
   {% csrf_token %}
-  <input type="file" name="photo-file">
-  <br/>
-  <button type="submit" class="btn">Upload Photo</button>
+  <div class="file-field input-field">
+    <div class="btn">
+      <span>Upload Photo</span>
+      <input type="file" name="photo-file">
+    </div>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="text">
+    </div>
+  </div>
+  <button type="submit" class="btn blue">Upload</button>
 </form>
 {% endblock %}
