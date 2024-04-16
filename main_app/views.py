@@ -229,3 +229,8 @@ def assoc_hotel(request, hotel_id):
     hotel.save()
     print(hotel_id)
     return redirect('detail', hotel_id=hotel_id)
+
+
+
+
+print("hello")
