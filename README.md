@@ -41,4 +41,4 @@ Whether you're a seasoned traveler or an aspiring adventurer, our platform puts 
 5. ![Screenshot 5](<Screenshot 2024-04-15 at 2.57.30 PM.png>)
 6. ![Screenshot 6](<Screenshot 2024-04-15 at 2.59.19 PM.png>)
 
-[Link to Website](https://destination-htb7.onrender.com/)
+[Link to Destinations](https://destination-htb7.onrender.com/)
