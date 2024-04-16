@@ -20,7 +20,7 @@ Traveller: Represents a user's traveller with attributes like name, description,
 Activity: Represents an activity in a city, linked to a specific traveller.
 Hotel: Represents a hotel entity with attributes like name, address, and description.
 
-Link  -->> https://destination-htb7.onrender.com
+
 
 
 
