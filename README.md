@@ -10,7 +10,7 @@ Whether you're a seasoned traveler or an aspiring adventurer, our platform puts 
 
 1. **Restaurant Listings:** Browse a comprehensive list of restaurants, including their names, addresses, and descriptions.
 2. **Photo Gallery:** View photos associated with each restaurant and hotel to get a visual sense of the ambiance and cuisine.
-3. **User Profiles:** Create a personalized profile, add travelers, and share favorite restaurants and activities.
+3. **User Profiles:** Create a profile, add travelers, and share favorite restaurants and activities.
 4. **Activity Listings:** Discover various activities available in different cities, along with their descriptions.
 5. **Hotel Listings:** Explore a curated selection of hotels, including their names, addresses, and descriptions.
 
